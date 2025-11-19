@@ -1,0 +1,14 @@
+# background = 282c34
+font-family = JetBrains Mono
+
+# font-style = Medium
+font-thicken = true
+
+window-colorspace = srgb
+# window-colorspace = display-p3
+
+alpha-blending = linear-corrected
+minimum-contrast = 1.0
+background-opacity = 1.0
+
+window-decoration = none
