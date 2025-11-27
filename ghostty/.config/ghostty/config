@@ -12,3 +12,5 @@ minimum-contrast = 1.0
 background-opacity = 1.0
 
 window-decoration = none
+
+mouse-hide-while-typing = true
