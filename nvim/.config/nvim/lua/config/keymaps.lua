@@ -13,11 +13,16 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 
 vim.keymap.set("n", "<leader>r", "*``cgn", { desc = "Search and replace word under cursor" })
 vim.keymap.set(
-  "x",
-  "<leader>r",
-  "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>Ncgn",
-  { desc = "Search and replace visual selection" }
+	"x",
+	"<leader>r",
+	"y/\\V<C-R>=escape(@\",'/\\')<CR><CR>Ncgn",
+	{ desc = "Search and replace visual selection" }
 )
 
 vim.keymap.set("n", "W", "$", { desc = "Jump to end of line" })
 vim.keymap.set("n", "B", "_", { desc = "Jump to first non-blank character" })
+
+-- Toggle terminal with § (works in normal and terminal mode)
+-- Function is defined in snacks.lua
+vim.keymap.set("n", "§", _G.toggle_terminal, { desc = "Toggle terminal" })
+vim.keymap.set("t", "§", "<C-\\><C-n><cmd>lua _G.toggle_terminal()<CR>", { desc = "Toggle terminal" })
