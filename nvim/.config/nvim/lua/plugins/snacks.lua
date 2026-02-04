@@ -1,26 +1,4 @@
 local function toggle_terminal()
-	-- Helper function to find terminal window
-	local function find_terminal_window()
-		for _, win in ipairs(vim.api.nvim_list_wins()) do
-			local buf = vim.api.nvim_win_get_buf(win)
-			local buf_type = vim.api.nvim_buf_get_option(buf, "buftype")
-			if buf_type == "terminal" then
-				return win
-			end
-		end
-		return nil
-	end
-
-	local terminal_win = find_terminal_window()
-	local current_win = vim.api.nvim_get_current_win()
-
-	-- If terminal window exists but we're not in it, focus it and enter terminal mode
-	if terminal_win and current_win ~= terminal_win then
-		vim.api.nvim_set_current_win(terminal_win)
-		vim.cmd("startinsert")
-		return
-	end
-
 	-- Otherwise, toggle the terminal (open if closed, close if open)
 	-- Try snacks first
 	local ok_snacks, snacks = pcall(require, "snacks")
