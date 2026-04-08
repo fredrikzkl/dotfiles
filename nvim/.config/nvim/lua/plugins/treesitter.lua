@@ -22,6 +22,9 @@ return {
         "vim",
         "yaml",
         "kotlin",
+        "gdscript",
+        "godot_resource",
+        "gdshader",
       },
       go = {
         gofumpt = false,
