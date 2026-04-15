@@ -1,1 +1,7 @@
-{}
+customCommands:
+  - key: "D"
+    description: "Run hardcoded GitHub Actions workflow on selected branch"
+    context: "localBranches"
+    command: "gh workflow run dundre-deploy.yml --ref {{.SelectedLocalBranch.Name | quote}}"
+    loadingText: "Dundrer {{.SelectedLocalBranch.Name | quote}}"
+    output: log
