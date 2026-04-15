@@ -1,6 +1,15 @@
+os:
+  editPreset: "nvim"
+
 customCommands:
   - key: "D"
-    description: "Run hardcoded GitHub Actions workflow on selected branch"
+    description: "Deploy"
+    context: "localBranches"
+    command: "gh workflow run build-and-deploy.yml --ref {{.SelectedLocalBranch.Name | quote}}"
+    loadingText: "Deploying {{.SelectedLocalBranch.Name | quote}}"
+    output: log
+  - key: "F"
+    description: "DundreDeploy"
     context: "localBranches"
     command: "gh workflow run dundre-deploy.yml --ref {{.SelectedLocalBranch.Name | quote}}"
     loadingText: "Dundrer {{.SelectedLocalBranch.Name | quote}}"
