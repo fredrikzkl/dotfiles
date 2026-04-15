@@ -48,7 +48,6 @@ return {
 	{
 		"rebelot/kanagawa.nvim",
 		lazy = false,
-		priority = 1000,
 		opts = {
 			theme = "wave",
 			colors = {
@@ -68,9 +67,36 @@ return {
 		end,
 	},
 	{
+		"sainnhe/sonokai",
+		name = "sonokai",
+		lazy = false,
+	},
+	{
+		"AlexvZyl/nordic.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("nordic").setup({
+				bold_keywords = true,
+				italic_comments = false,
+				transparent = {
+					bg = false,
+					float = false,
+				},
+				noice = {
+					style = "classic",
+				},
+				telescope = {
+					style = "classic",
+				},
+			})
+			require("nordic").load()
+		end,
+	},
+	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "tokyonight",
+			colorscheme = "nordic",
 		},
 	},
 }
