@@ -23,6 +23,23 @@ _G.toggle_terminal = toggle_terminal
 
 return {
 	"folke/snacks.nvim",
+	keys = {
+		{
+			"<leader>gw",
+			function()
+				Snacks.terminal("gh run watch", {
+					win = {
+						style = "float",
+						width = 0.2,
+						border = "rounded",
+						title = " CI Runs",
+						title_pos = "center",
+					},
+				})
+			end,
+			desc = "GitHub Actions Runs (live)",
+		},
+	},
 	opts = {
 		terminal = {
 			win = {
