@@ -47,8 +47,26 @@ BREW_CASKS=(
 )
 
 brew update
-brew install "${BREW_FORMULAE[@]}"
-brew install --cask "${BREW_CASKS[@]}"
+
+# Install formulae individually; skip if already installed, keep going on failure.
+for f in "${BREW_FORMULAE[@]}"; do
+  if brew list --formula --versions "$f" >/dev/null 2>&1; then
+    log "  formula $f already installed — skipping"
+  else
+    brew install "$f" || warn "Failed to install $f (continuing)"
+  fi
+done
+
+# Casks: if the app already exists but wasn't tracked by brew, --adopt takes it over.
+for c in "${BREW_CASKS[@]}"; do
+  if brew list --cask --versions "$c" >/dev/null 2>&1; then
+    log "  cask $c already installed — skipping"
+  else
+    brew install --cask --adopt "$c" 2>/dev/null \
+      || brew install --cask "$c" \
+      || warn "Failed to install cask $c (continuing)"
+  fi
+done
 
 # 4. oh-my-zsh (keep our .zshrc; don't launch zsh)
 if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
