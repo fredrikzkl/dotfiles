@@ -83,14 +83,30 @@ return {
 					bg = false,
 					float = false,
 				},
+				cursorline = {
+					theme = "light",
+					blend = 0.6,
+				},
+				visual = {
+					theme = "light",
+					blend = 1.0,
+				},
 				noice = {
 					style = "classic",
 				},
 				telescope = {
 					style = "classic",
 				},
+				on_highlight = function(highlights, palette)
+					highlights.FloatBorder = { fg = palette.gray5 }
+				end,
 			})
 			require("nordic").load()
+			vim.api.nvim_set_hl(0, "SnacksDashboardHeader", { fg = "#EBCB8B", bold = true })
+			-- Brighter ANSI black so apps like lazygit (which render inactive text in ANSI black)
+			-- stay readable inside nvim's embedded terminal
+			vim.g.terminal_color_0 = "#3B4252"
+			vim.g.terminal_color_8 = "#4C566A"
 		end,
 	},
 	{
