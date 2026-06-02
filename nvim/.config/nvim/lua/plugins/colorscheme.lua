@@ -99,6 +99,16 @@ return {
 				},
 				on_highlight = function(highlights, palette)
 					highlights.FloatBorder = { fg = palette.gray5 }
+
+					-- More saturated syntax (nordic's `dim` variants are more saturated than `base`)
+					highlights.Type = { fg = palette.yellow.dim, bold = true }
+					highlights.Keyword = { fg = palette.orange.dim, bold = true }
+					highlights.String = { fg = palette.green.dim }
+					highlights.Constant = { fg = palette.magenta.dim }
+
+					-- Yellow folders in neo-tree only
+					highlights.NeoTreeDirectoryName = { fg = palette.yellow.base }
+					highlights.NeoTreeDirectoryIcon = { fg = palette.yellow.base }
 				end,
 			})
 			require("nordic").load()
