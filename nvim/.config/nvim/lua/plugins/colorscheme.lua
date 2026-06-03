@@ -26,8 +26,6 @@ return {
 	{
 		"sainnhe/everforest",
 		name = "everforest",
-		lazy = false,
-		priority = 1000,
 		config = function()
 			vim.g.everforest_enable_italic = true
 			vim.g.everforest_background = "medium" -- Options: "hard" (darker), "medium" (default), "soft" (lighter)                                                                                                                                                                                                                                                                              │
@@ -47,7 +45,6 @@ return {
 	},
 	{
 		"rebelot/kanagawa.nvim",
-		lazy = false,
 		opts = {
 			theme = "wave",
 			colors = {
@@ -69,7 +66,6 @@ return {
 	{
 		"sainnhe/sonokai",
 		name = "sonokai",
-		lazy = false,
 	},
 	{
 		"AlexvZyl/nordic.nvim",
