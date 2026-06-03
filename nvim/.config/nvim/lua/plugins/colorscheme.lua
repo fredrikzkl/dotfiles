@@ -99,6 +99,7 @@ return {
 				},
 				on_highlight = function(highlights, palette)
 					highlights.FloatBorder = { fg = palette.gray5 }
+					highlights.Comment = { fg = palette.gray5, italic = true }
 
 					-- More saturated syntax (nordic's `dim` variants are more saturated than `base`)
 					highlights.Type = { fg = palette.yellow.dim, bold = true }
