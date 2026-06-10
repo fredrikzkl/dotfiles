@@ -15,3 +15,7 @@ background-opacity = 1.0
 window-decoration = none
 
 mouse-hide-while-typing = true
+
+# Remap Ctrl+j/k to down/up arrow for all apps running in Ghostty
+keybind = ctrl+j=csi:B
+keybind = ctrl+k=csi:A
