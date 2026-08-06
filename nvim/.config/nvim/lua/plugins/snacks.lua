@@ -41,6 +41,12 @@ return {
 		},
 	},
 	opts = {
+		picker = {
+			sources = {
+				-- Show dotfiles in file pickers (e.g. this dotfiles repo lives under .config/).
+				files = { hidden = true },
+			},
+		},
 		terminal = {
 			win = {
 				position = "right",
