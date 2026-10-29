@@ -72,6 +72,10 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
+# Keep fpath free of duplicates (brew shellenv re-prepends on every nested
+# shell). A changed fpath invalidates the compdump and forces a ~4s compinit.
+typeset -U fpath
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -116,6 +120,7 @@ function lg() {
 eval "$(zoxide init zsh)"
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.dotfiles/bin:$PATH"
 
 # Auto-start tmux if not already in a tmux session
 # Disabled to allow Ghostty panels to start fresh sessions
@@ -123,4 +128,7 @@ export PATH="$HOME/.local/bin:$PATH"
 #     exec tmux attach-session || exec tmux new-session
 # fi
 
+
+# Functions/aliases live in ~/.zprofile; load them in non-login shells too.
+# (Safe to double-source now that fpath is deduplicated above.)
 [ -f ~/.zprofile ] && source ~/.zprofile
